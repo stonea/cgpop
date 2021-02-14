@@ -1,0 +1,12 @@
+#PBS -N run2016
+#PBS -q batch
+#PBS -l size=2016
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -S /bin/csh -V
+
+cd /lustre/scratch/jdennis/POPperf/gx01v2/2016
+setenv LID "`date +%y%m%d-%H%M%S`"
+
+
+aprun -n 2016 -N 8 -d 1 pop.72x48x2 >&! run2016.log.$LID

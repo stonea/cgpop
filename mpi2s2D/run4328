@@ -1,0 +1,12 @@
+#PBS -N run4328
+#PBS -q batch
+#PBS -l size=4328
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -S /bin/csh -V
+
+cd /lustre/scratch/jdennis/POPperf/gx01v2
+setenv LID "`date +%y%m%d-%H%M%S`"
+
+
+aprun -n 4328 -N 8 -d 1 pop.48x32x2 >&! run4328.log.$LID
